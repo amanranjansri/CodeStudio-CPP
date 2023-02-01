@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+#include <iostream>
+using namespace std;
+
+int main() {
+  // Write your code here
+  int S, E, W, C;
+  cin >> S >> E >> W;
+  while (S <= E) {
+    C = (5 * S - 32 * 5) / 9;
+    cout << S << " " << C << endl;
+    S = S + W;
+  }
+  return 0;
+}
