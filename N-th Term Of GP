@@ -1,0 +1,39 @@
+long long  powercheck(int R, int N)
+{
+    int mod = 1000000007;
+
+    //base condition
+    if(N == 0)
+    {
+        return 1;
+    }
+    if(N == 1)
+    {
+        return R;
+    }
+
+    //recursive call
+  long long  calculation = powercheck(R, N/2) % mod;
+   long long  answer = (calculation * calculation) % mod;
+
+   if(N % 2 == 0)
+   {
+       return answer % mod;
+   }
+   else
+   {
+       return (R * answer) % mod;
+   }
+}
+
+
+int nthTermOfGP(int N, int A, int R) {
+    // Write your code here.
+    int mod = 1000000007;
+    int ans = (A * powercheck(R, N-1) % mod);
+
+    return ans % mod;
+
+}
+
+//05-feb-2023
