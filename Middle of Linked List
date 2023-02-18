@@ -1,0 +1,27 @@
+int sizeofnode(Node* head)
+{
+ int count = 0;
+ while(head != NULL)
+ {
+     count++;
+     head = head -> next;
+ }
+ return count;
+
+}
+
+Node *findMiddle(Node *head) {
+    // Write your code here
+
+    int length = sizeofnode(head);
+    int mid = length/2;
+
+    Node* temp = head;
+    int cnt = 0;
+    while(cnt < mid)
+    {  
+        temp = temp -> next;
+        cnt++;
+    }
+    return temp;
+} //18-feb-2023
