@@ -1,0 +1,63 @@
+Node* getmiddle(Node* head)
+{
+    if(head == NULL or head -> next == NULL)
+    {
+        return head;
+    }
+
+    if(head -> next -> next == NULL)
+    {
+        return head -> next;
+    }
+
+    Node* slow = head;
+    Node* fast = head -> next;
+
+    while(fast != NULL)
+    {
+        fast = fast -> next;
+        if(fast != NULL)
+        {
+            fast = fast -> next;
+        }
+
+        slow = slow -> next;
+    }
+    return slow;
+}
+
+
+
+
+// int sizeofnode(Node* head)
+// {
+//  int count = 0;
+//  while(head != NULL)
+//  {
+//      count++;
+//      head = head -> next;
+//  }
+//  return count;
+
+// }
+
+Node *findMiddle(Node *head) {
+    // Write your code here
+
+    return getmiddle(head);
+ 
+ 
+ 
+ 
+    /*int length = sizeofnode(head);
+    int mid = length/2;
+
+    Node* temp = head;
+    int cnt = 0;
+    while(cnt < mid)
+    {  
+        temp = temp -> next;
+        cnt++;
+    }
+    return temp;*/
+} //18-feb-2023
