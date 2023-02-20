@@ -16,8 +16,8 @@ bool isValidParenthesis(string expression)
           if (!st.empty()) {
             char top = st.top();
 
-            if ((ch == ')' && top == '(') or (ch == ']' && top == '[') or
-                (ch == '}' && top == '{')) {
+            if ((top == '(' && ch == ')') or (top == '[' && ch == ']') or
+                (top == '{' && ch == '}')) {
               st.pop();
             } else {
               return false;
