@@ -1,0 +1,28 @@
+#include <bits/stdc++.h> 
+
+void pushatbottom(stack<int>& mystack, int x)
+{
+    //base case
+    if(mystack.empty())
+    {
+        mystack.push(x);
+        return;
+    }
+
+    int num = mystack.top();
+    mystack.pop();
+
+    //recursive relaation
+
+    pushatbottom(mystack, x);
+
+    mystack.push(num);
+}
+
+stack<int> pushAtBottom(stack<int>& myStack, int x) 
+{
+    // Write your code here.
+    pushatbottom(myStack, x);
+
+    return myStack;
+}//20-feb-2023
