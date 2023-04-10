@@ -1,0 +1,59 @@
+vector < int > sortedArray(vector < int > a, vector < int > b) {
+   
+    int n = a.size();
+    int m = b.size();
+
+    vector<int> solve;
+    
+    int i = 0;
+    int j = 0;
+
+    while(i<n && j<m)
+    {
+        if(a[i] < b[j])
+        {
+            if(solve.size() == 0 || solve.back() != a[i])
+            {
+                solve.push_back(a[i]);
+               
+            }
+             i++;
+        }
+        else if(a[i] == b[j])
+        {
+            if(solve.size() == 0 || solve.back() != a[i])
+            {
+                solve.push_back(a[i]);
+            }
+             i++;
+            j++;
+        }
+        else
+        {
+            if(solve.size() == 0 || solve.back() != b[j])
+            {
+                solve.push_back(b[j]);
+            }
+            j++;
+        }
+    }
+
+    while(i<n)
+    {
+        if(solve.back() != a[i])
+        {
+            solve.push_back(a[i]);
+        }
+        i++;
+    }
+
+    while(j<m)
+    {
+        if(solve.back() != b[j])
+        {
+            solve.push_back(b[j]);
+        }
+        j++;
+    }
+    return solve;
+}
