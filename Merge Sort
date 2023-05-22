@@ -1,0 +1,63 @@
+void merge(vector < int > & arr, int s, int m, int e)
+{
+    int n = m-s+1;
+    int p = e-m;
+    int k = s;
+
+    int *first = new int[n];
+    int *second = new int[p];
+
+    for(int i = 0;i<n;i++)
+    {
+        first[i] = arr[k++];
+    }
+
+    k =m+1;
+    for(int i = 0; i< p; i++)
+    {
+        second[i] = arr[k++];
+    }
+
+    int i = 0; 
+    int j = 0;
+    k = s;
+    while(i<n && j<p)
+    {
+        if(first[i] < second[j])
+        {
+            arr[k++] = first[i++];
+        }
+        else
+        {
+            arr[k++] = second[j++];
+        }
+    }
+    while(i<n)
+    {
+        arr[k++] = first[i++];
+    }
+    while(j<p)
+    {
+        arr[k++] = second[j++];
+    }
+}
+
+void mergepart(vector < int > & arr, int s, int e)
+{
+    //base case
+    if(s>=e) return;
+
+    int m = s + (e-s)/2;
+    //sort left part
+    mergepart(arr,s,m);
+    //sort right part
+    mergepart(arr,m+1,e);
+    //merge array
+    merge(arr,s,m,e);
+}
+
+void mergeSort(vector < int > & arr, int n) {
+    int s = 0;
+    int e = n-1;
+    mergepart(arr,s,e);
+}
